@@ -98,7 +98,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="CLoginDIg.qrc" />
+    <QtRcc Include="HelloMeeting.qrc" />
     <QtUic Include="CLoginDIg.ui" />
     <QtMoc Include="CLoginDIg.h" />
     <ClCompile Include="agoraconfig.cpp" />

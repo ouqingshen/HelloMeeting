@@ -16,6 +16,8 @@ public:
 	CMainWidget(QWidget *p =nullptr);
 	~CMainWidget();
 
+	void joinRoom(const QString roomId);
+
 private:
 	void initUI();
 private slots:

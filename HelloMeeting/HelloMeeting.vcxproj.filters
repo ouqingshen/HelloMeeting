@@ -23,7 +23,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="CLoginDIg.qrc">
+    <QtRcc Include="HelloMeeting.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
     <QtUic Include="CLoginDIg.ui">

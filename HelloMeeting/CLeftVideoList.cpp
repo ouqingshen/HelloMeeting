@@ -23,3 +23,10 @@ CLeftVideoList::~CLeftVideoList()
 {
 
 }
+
+void CLeftVideoList::addVideoWidget(CSmallVideoWidget * pSmall)
+{
+	QListWidgetItem* pItem = new QListWidgetItem();
+	m_pListWidget->addItem(pItem);
+	m_pListWidget->setItemWidget(pItem,pSmall);
+}

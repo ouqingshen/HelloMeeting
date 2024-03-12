@@ -5,6 +5,7 @@
 #pragma once
 #include <qwidget.h>
 #include <QListWidget>
+#include "CSmallVideoWidget.h"
 
 class CLeftVideoList :
     public QWidget
@@ -16,7 +17,7 @@ public:
     ~CLeftVideoList();
 
 
-    void addVideoWidget();
+    void addVideoWidget(CSmallVideoWidget * pSmall );
 
 private:
     QListWidget* m_pListWidget = nullptr;

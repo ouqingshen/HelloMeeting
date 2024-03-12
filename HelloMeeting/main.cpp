@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     if (w.exec()== QDialog::Accepted)
     {
         mainw.show();
+        mainw.joinRoom(w.getRoomId());
         return a.exec();
     }
    

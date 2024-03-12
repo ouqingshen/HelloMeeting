@@ -28,10 +28,13 @@
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>163</height>
+          <height>50</height>
          </size>
         </property>
        </spacer>
@@ -43,9 +46,12 @@
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
+            <width>20</width>
             <height>20</height>
            </size>
           </property>
@@ -160,9 +166,12 @@
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
+            <width>20</width>
             <height>20</height>
            </size>
           </property>
@@ -175,10 +184,13 @@
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>162</height>
+          <height>50</height>
          </size>
         </property>
        </spacer>
@@ -206,6 +218,21 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnMin">
+          <property name="styleSheet">
+           <string notr="true">/* 正常状态下的样式 */
+QPushButton {
+    background-image: url(:/CLoginDIg/resources/login/min.svg);
+    border: none;
+}
+
+/* 鼠标悬停状态下的样式 */
+QPushButton:hover {
+    background-color: rgb(99, 99, 99);
+    background-image: url(:/CLoginDIg/resources/login/min_hover.svg);
+    border: none;
+}
+</string>
+          </property>
           <property name="text">
            <string>PushButton</string>
           </property>
@@ -240,7 +267,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="CLoginDIg.qrc"/>
+  <include location="HelloMeeting.qrc"/>
  </resources>
  <connections/>
 </ui>

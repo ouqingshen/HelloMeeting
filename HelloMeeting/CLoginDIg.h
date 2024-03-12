@@ -10,9 +10,17 @@ class CLoginDIg : public QDialog
 public:
     CLoginDIg(QWidget *parent = nullptr);
     ~CLoginDIg();
+
+    QString getRoomId() const;
+
+
+    void mousePressEvent(QMouseEvent* event) override;
+
 public slots:
     void on_btnJoin_clicked();
 
 private:
     Ui::CLoginDIgClass ui;
+
+
 };

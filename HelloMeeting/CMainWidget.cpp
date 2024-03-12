@@ -2,6 +2,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QMessageBox>
+#include "CSmallVideoWidget.h"
 
 CMainWidget::CMainWidget(QWidget* p)
 	:CFraneLessWidgetBase(p)
@@ -14,6 +15,7 @@ CMainWidget::CMainWidget(QWidget* p)
 		QMessageBox::information(this, u8"提示", u8"agora init failure!");
 		exit(EXIT_FAILURE);
 	}
+
 	connect(m_pAgora, &CAgoraObject::sender_joinedChannelSuccess, this, &CMainWidget::onLocalJoinedSuccess);
 	connect(m_pAgora, &CAgoraObject::sender_userJoined, this, &CMainWidget::onRemoteJoined);
 
@@ -21,6 +23,11 @@ CMainWidget::CMainWidget(QWidget* p)
 
 CMainWidget::~CMainWidget()
 {
+}
+
+void CMainWidget::joinRoom(const QString roomId)
+{
+	m_pAgora->joinChannel(roomId, 123001);
 }
 
 void CMainWidget::initUI()
@@ -48,20 +55,14 @@ void CMainWidget::initUI()
 //本地加入成功
 void CMainWidget::onLocalJoinedSuccess(const QString& qsChannel, unsigned int uid, int elapsed)
 {
-	HWND hwnd = (HWND)(ui.widget_local->winId());
-
-	BOOL previewSuccess = m_pAgora->LocalVideoPreview(hwnd, true);
-	if (!previewSuccess) {
-		qDebug() << u8"预览失败";
-	}
-	else
-	{
-		qDebug() << u8"预览成功";
-	}
+	m_pAgora->LocalVideoPreview(m_pBigVideoWidget->getHwnd(), true);
 
 }
 //远程用户加入房间
 void CMainWidget::onRemoteJoined(uid_t uid, int elapsed)
 {
-	m_pAgora->RemoteVideoRender(uid, (HWND)(ui.widget_remote->winId()));
+	CSmallVideoWidget* pSmall = new CSmallVideoWidget();
+	m_pLeftVideoList->addVideoWidget(pSmall);
+
+	m_pAgora->RemoteVideoRender(uid, (HWND)(pSmall->winId()));
 }
