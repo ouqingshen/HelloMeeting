@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/Test">
+        <file>resources/min.svg</file>
+    </qresource>
+</RCC>

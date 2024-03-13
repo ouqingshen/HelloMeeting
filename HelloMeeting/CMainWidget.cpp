@@ -50,7 +50,10 @@ void CMainWidget::initUI()
 	mainVlay->addWidget(m_pBottomBar);
 
 	mainVlay->setContentsMargins(0, 0, 0, 0);
+
 }
+
+
 
 //本地加入成功
 void CMainWidget::onLocalJoinedSuccess(const QString& qsChannel, unsigned int uid, int elapsed)

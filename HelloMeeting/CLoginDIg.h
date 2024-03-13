@@ -17,6 +17,7 @@ public:
     void mousePressEvent(QMouseEvent* event) override;
 
 public slots:
+    void on_titleBar_clicked();
     void on_btnJoin_clicked();
 
 private:

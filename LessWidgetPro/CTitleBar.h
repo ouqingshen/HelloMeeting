@@ -26,7 +26,6 @@ private:
 	QLabel* m_pLogo;
 	QLabel* m_pTitleTextLabel;
 
-	QPushButton* m_pSetBtn;
 	QPushButton* m_pMinBtn;
 	QPushButton * m_pMaxBtn;
 	QPushButton * m_pCloseBtn;

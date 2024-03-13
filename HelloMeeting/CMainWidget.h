@@ -20,6 +20,7 @@ public:
 
 private:
 	void initUI();
+
 private slots:
 	void onLocalJoinedSuccess(const QString& qsChannel, unsigned int uid, int elapsed);
 	void onRemoteJoined(uid_t uid, int elapsed);

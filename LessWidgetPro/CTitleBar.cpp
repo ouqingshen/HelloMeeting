@@ -24,8 +24,6 @@ void CTitleBar::initUI()
 	m_pTitleTextLabel->setText(u8"我是标题");
 	m_pTitleTextLabel->setFixedWidth(120);
 
-	m_pSetBtn = new QPushButton(this);
-	m_pSetBtn->setFixedSize(32, 32);
 
 	m_pMinBtn = new QPushButton(this);
 	m_pMinBtn->setFixedSize(32,32);
@@ -41,7 +39,6 @@ void CTitleBar::initUI()
 	pHlay->addWidget(m_pLogo);
 	pHlay->addWidget(m_pTitleTextLabel);
 	pHlay->addStretch();
-	pHlay->addWidget(m_pSetBtn);
 	pHlay->addWidget(m_pMinBtn);
 	pHlay->addWidget(m_pMaxBtn);
 	pHlay->addWidget(m_pCloseBtn);
