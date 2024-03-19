@@ -4,7 +4,8 @@
 
 CTitleBar::CTitleBar(QWidget* p)
 {
-
+	setAttribute(Qt::WA_StyledBackground, true);
+	
 	initUI();
 }
 
@@ -19,9 +20,9 @@ void CTitleBar::initUI()
 	this->setStyleSheet("background-color:rgb(54,54,54)");
 	m_pLogo = new QLabel(this);
 	m_pLogo->setFixedSize(32, 32);
-
+	m_pLogo->setStyleSheet("background-image:url(:/MainWidget/resources/logo.png)");
 	m_pTitleTextLabel = new QLabel(this);
-	m_pTitleTextLabel->setText(u8"我是标题");
+	m_pTitleTextLabel->setText(u8"HelloMeeting");
 	m_pTitleTextLabel->setFixedWidth(120);
 
 
@@ -30,9 +31,11 @@ void CTitleBar::initUI()
 
 	m_pMaxBtn = new QPushButton(this);
 	m_pMaxBtn->setFixedSize(32, 32);
+	m_pMaxBtn->setStyleSheet("QPushButton{background-image:url(:/MainWidget/resources/max.svg);border:none}");
 
 	m_pCloseBtn = new QPushButton(this);
 	m_pCloseBtn->setFixedSize(32, 32);
+	m_pCloseBtn->setStyleSheet("");
 
 
 	QHBoxLayout* pHlay = new QHBoxLayout(this);
@@ -85,6 +88,6 @@ void CTitleBar::onClicked() {
 	}
 	else if (pButton==m_pCloseBtn)
 	{
-		emit sig_close();
+		emit &CTitleBar::sig_close;
 	}
 }

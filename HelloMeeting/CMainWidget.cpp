@@ -3,12 +3,16 @@
 #include <QHBoxLayout>
 #include <QMessageBox>
 #include "CSmallVideoWidget.h"
+#include "qscreen.h"
+#include <iostream>
+#include "commons.h"
+#include "ShareScreenDialog.h"
 
 CMainWidget::CMainWidget(QWidget* p)
 	:CFraneLessWidgetBase(p)
 {
 	initUI();
-
+	setWindowIcon(QIcon(":/CLoginDIg/resources/login/logo.png"));
 	m_pAgora = new CAgoraObject();
 
 	if (0 != m_pAgora->init()) {
@@ -18,21 +22,41 @@ CMainWidget::CMainWidget(QWidget* p)
 
 	connect(m_pAgora, &CAgoraObject::sender_joinedChannelSuccess, this, &CMainWidget::onLocalJoinedSuccess);
 	connect(m_pAgora, &CAgoraObject::sender_userJoined, this, &CMainWidget::onRemoteJoined);
-
+	connect(m_pTitleBar, &CTitleBar::sig_close, this, [&](){
+		close();
+		});
 }
 
 CMainWidget::~CMainWidget()
 {
+	if (m_pAgora)
+	{
+		delete m_pAgora;
+		m_pAgora = nullptr;
+	}
 }
 
 void CMainWidget::joinRoom(const QString roomId)
 {
-	m_pAgora->joinChannel(roomId, 123001);
+	m_pAgora->joinChannel(roomId, 123002);
 }
 
+void CMainWidget::resizeEvent(QResizeEvent* event)
+{
+	int w = this->width();
+	int h = this->height();
+	int screen_w = 1920;
+	int screen_h = 1080;
+	if (!this->isMaximized())
+	{
+	this->move((1920-w)/2,(1080-h)/2);
+	}
+
+}
 void CMainWidget::initUI()
 {
 	m_pTitleBar = new CTitleBar(this);
+	this->setFocusPolicy(Qt::StrongFocus);
 	m_pLeftVideoList = new CLeftVideoList(this);
 	m_pBigVideoWidget = new CBigVideoWidget(this);
 	m_pBottomBar = new CBottomBar(this);
@@ -42,14 +66,21 @@ void CMainWidget::initUI()
 	mainVlay->addWidget(m_pTitleBar);
 
 	QHBoxLayout* pHLay = new QHBoxLayout(this);
+	QVBoxLayout* pCenter = new QVBoxLayout(this);
+	pCenter->addWidget(m_pBigVideoWidget);
+	pCenter->addWidget(m_pBottomBar);
 
 	pHLay->addWidget(m_pLeftVideoList);
-	pHLay->addWidget(m_pBigVideoWidget);
+	pHLay->addLayout(pCenter);
+	//pHLay->addWidget(m_pBigVideoWidget);
 
 	mainVlay->addLayout(pHLay);
-	mainVlay->addWidget(m_pBottomBar);
+	//mainVlay->addWidget(m_pBottomBar);
 
 	mainVlay->setContentsMargins(0, 0, 0, 0);
+
+	connect(m_pBottomBar,&CBottomBar::sig_close,this,&CMainWidget::onEndMeeting);
+	connect(m_pBottomBar, &CBottomBar::sig_shareScreen,this,&CMainWidget::on_ShareScreen);
 
 }
 
@@ -68,4 +99,31 @@ void CMainWidget::onRemoteJoined(uid_t uid, int elapsed)
 	m_pLeftVideoList->addVideoWidget(pSmall);
 
 	m_pAgora->RemoteVideoRender(uid, (HWND)(pSmall->winId()));
+}
+
+void CMainWidget::onEndMeeting()
+{
+	close();
+}
+
+void CMainWidget::on_ShareScreen()
+{
+	VecWindowShareInfo vecWindowShare;
+	m_pAgora->shareScreen(vecWindowShare);
+	ShareScreenDialog* share = new ShareScreenDialog;
+	share->initListWidget(vecWindowShare);
+
+
+	connect(share,&ShareScreenDialog::sig_StartShare,this,&CMainWidget::startShareScreen);
+
+	share->exec();
+}
+
+void CMainWidget::startShareScreen(int type,void* hwnd)
+{
+	if (0!=m_pAgora->start_share_screen(type,hwnd))
+	{
+		QMessageBox::information(this, u8"Ã· æ", u8"π≤œÌ∆¡ƒª ß∞‹");
+	}
+
 }

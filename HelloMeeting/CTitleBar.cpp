@@ -3,7 +3,7 @@
 #include <qt_windows.h>
 CTitleBar::CTitleBar(QWidget* p)
 {
-
+	
 	initUI();
 }
 
@@ -17,21 +17,27 @@ void CTitleBar::initUI()
 	this->setFixedHeight(32 + 5 * 2);
 	this->setStyleSheet("background-color:rgb(54,54,54)");
 	m_pLogo = new QLabel(this);
-	m_pLogo->setFixedSize(32, 32);
+	m_pLogo->setFixedSize(50, 50);
+	m_pLogo->setStyleSheet("background-image:url(:/CLoginDIg/resources/login/logo.png);background-repeat: no-repeat;background-position: center");
 
 	m_pTitleTextLabel = new QLabel(this);
-	m_pTitleTextLabel->setText(u8"我是标题");
+	m_pTitleTextLabel->setText(u8"HelloMeeting");
 	m_pTitleTextLabel->setFixedWidth(120);
 
 	m_pMinBtn = new QPushButton(this);
 	m_pMinBtn->setFixedSize(32,32);
-	m_pMinBtn->setStyleSheet("background-image:url(:/CLoginDIg/resources/login/min.svg)");
+	m_pMinBtn->setStyleSheet("QPushButton{background-image:url(:/CLoginDIg/resources/login/min.svg);border:none;background-repeat:no-repeat;background-position: top}" \
+		"QPushButton:hover{background-image:url(:/CLoginDIg/resources/login/min_hover.svg);border:none;background-repeat:no-repeat;background-position: top}");
 
 	m_pMaxBtn = new QPushButton(this);
 	m_pMaxBtn->setFixedSize(32, 32);
+	m_pMaxBtn->setStyleSheet("QPushButton{background-image:url(:/CLoginDIg/resources/login/max.svg);border:none;background-repeat:no-repeat;background-position: center}");
+
 
 	m_pCloseBtn = new QPushButton(this);
 	m_pCloseBtn->setFixedSize(32, 32);
+	m_pCloseBtn->setStyleSheet("QPushButton{background-image:url(:/CLoginDIg/resources/login/close.svg);border:none;background-repeat:no-repeat;background-position: center}" \
+	"QPushButton:hover{background-image:url(:/CLoginDIg/resources/login/close_hover.svg);border:none;background-repeat:no-repeat;background-position: center}");
 
 
 

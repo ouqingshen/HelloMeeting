@@ -2,15 +2,18 @@
 #include <qdebug.h>
 #include <qt_windows.h>
 #include <qmessagebox.h>
+#include <QGraphicsDropShadowEffect>
 CLoginDIg::CLoginDIg(QWidget *parent)
     : QDialog(parent)
 {
+
+    setWindowIcon(QIcon(":/CLoginDIg/resources/login/logo.png"));
     setProperty("inheritStyle", false);
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinMaxButtonsHint);
     ui.setupUi(this);
-    ui.widget_right->setStyleSheet("background-image:url(:/CLoginDIg/resources/login/right_image)");
+    ui.widget_right->setStyleSheet("background-image: url(:/CLoginDIg/resources/login/login_right.jpg)");
  
-
+    ui.lineEdit_roomId->setText("10001");
     ui.lineEdit_pwd->setFixedHeight(40);
     ui.lineEdit_roomId->setFixedHeight(40);
     ui.lineEdit_userName->setFixedHeight(40);
@@ -26,7 +29,6 @@ CLoginDIg::CLoginDIg(QWidget *parent)
     ui.btnClose->setText("");
     ui.btnMin->setFixedSize(32,32);
     ui.btnClose->setFixedSize(32,32);
-
 
 
     connect(ui.btnMin,&QPushButton::clicked,this,&CLoginDIg::on_titleBar_clicked);
@@ -77,5 +79,3 @@ void CLoginDIg::on_titleBar_clicked() {
     }
   
 }
-
-

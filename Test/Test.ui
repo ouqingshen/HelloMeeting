@@ -19,8 +19,8 @@
      <rect>
       <x>80</x>
       <y>150</y>
-      <width>32</width>
-      <height>32</height>
+      <width>50</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -40,7 +40,7 @@
     background-image: url(:/Test/resources/min.svg);
     background-repeat: no-repeat;
     background-position: center;
-	background-size: 30px 5px;
+	background-size: 1px 5px;
 	border: none;
 }
 </string>

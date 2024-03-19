@@ -14,6 +14,5 @@ int main(int argc, char *argv[])
         mainw.joinRoom(w.getRoomId());
         return a.exec();
     }
-   
     return 0;
 }

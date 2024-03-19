@@ -17,13 +17,16 @@ public:
 	~CMainWidget();
 
 	void joinRoom(const QString roomId);
-
+	void resizeEvent(QResizeEvent* event) override;
 private:
 	void initUI();
 
 private slots:
 	void onLocalJoinedSuccess(const QString& qsChannel, unsigned int uid, int elapsed);
 	void onRemoteJoined(uid_t uid, int elapsed);
+	void onEndMeeting();
+	void on_ShareScreen();
+	void startShareScreen(int type, void* hwnd);
 
 private:
 	CTitleBar* m_pTitleBar = nullptr;

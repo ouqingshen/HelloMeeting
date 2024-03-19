@@ -16,6 +16,7 @@ void MainWidget::initUI()
 {
     m_pTitleBar = new CTitleBar(this);
 
+
     QWidget* w = new QWidget(this);
     w->setFixedSize(800,600);
 

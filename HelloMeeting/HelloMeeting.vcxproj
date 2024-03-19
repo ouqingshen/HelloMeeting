@@ -98,6 +98,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ShareScreenDialog.cpp" />
     <QtRcc Include="HelloMeeting.qrc" />
     <QtUic Include="CLoginDIg.ui" />
     <QtMoc Include="CLoginDIg.h" />
@@ -105,6 +106,7 @@
     <ClCompile Include="CAgoraObject.cpp" />
     <ClCompile Include="CBigVideoWidget.cpp" />
     <ClCompile Include="CBottomBar.cpp" />
+    <ClCompile Include="CBottomBarTools.cpp" />
     <ClCompile Include="CFraneLessWidgetBase.cpp" />
     <ClCompile Include="CLeftVideoList.cpp" />
     <ClCompile Include="CLoginDIg.cpp" />
@@ -115,15 +117,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="agoraconfig.h" />
+    <QtMoc Include="ShareScreenDialog.h" />
+    <QtMoc Include="CBottomBarTools.h" />
     <ClInclude Include="commons.h" />
     <QtMoc Include="CSmallVideoWidget.h" />
     <QtMoc Include="CBigVideoWidget.h" />
-    <ClInclude Include="CBottomBar.h" />
+    <QtMoc Include="CBottomBar.h" />
     <ClInclude Include="CFraneLessWidgetBase.h" />
     <QtMoc Include="CLeftVideoList.h" />
     <QtMoc Include="CTitleBar.h" />
     <QtMoc Include="CMainWidget.h" />
     <QtMoc Include="CAgoraObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
