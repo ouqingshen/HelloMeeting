@@ -100,6 +100,18 @@ int CAgoraObject::joinChannel(const QString& channel, uint uid)
     QString token = gAgoraConfig.getAppToken();
     // Parameters are: token channelId, optionalInfo, uid
     // https://docs.agora.io/en/Video/API%20Reference/cpp/classagora_1_1rtc_1_1_i_rtc_engine.html#a3eb5ee494ce124b34609c593719c89ab
+    /*-0(ERR_OK) : Success.
+        - < 0 : Failure.
+        - -2(ERR_INVALID_ARGUMENT) : The parameter is invalid.
+        - -3(ERR_NOT_READY) : The SDK fails to be initialized.You can try re - initializing the SDK.
+        - -5(ERR_REFUSED) : The request is rejected.This may be caused by the following :
+    -You have created an IChannel object with the same channel name.
+        - You have joined and published a stream in a channel created by the IChannel object.When you join a channel created by the IRtcEngine object, the SDK publishes the local audio and video streams to that channel by default.Because the SDK does not support publishing a local stream to more than one channel simultaneously, an error occurs in this occasion.
+        - -7(ERR_NOT_INITIALIZED) : The SDK is not initialized before calling this method.
+        - -17(ERR_JOIN_CHANNEL_REJECTED) : The request to join the channel is rejected.The SDK supports joining only one
+        IRtcEngine channel at a time.Therefore, the SDK returns this error code when a user who has already joined an
+        IRtcEngine channel calls the joining channel method of the IRtcEngine class with a valid channel name.
+        */
     int r = m_rtcEngine->joinChannel(token.toUtf8().data(), channel.toUtf8().data(), nullptr, uid);
     return r;
 }

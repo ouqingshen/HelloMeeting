@@ -64,6 +64,7 @@ ShareScreenDialog::ShareScreenDialog(QDialog* parent)
 	vBoxLayout->addWidget(m_pBtnCancel);
 
 	connect(m_pBtnCancel,&QPushButton::clicked,this,&ShareScreenDialog::onCancel);
+
 	connect(m_pBtnStart,&QPushButton::clicked,this,&ShareScreenDialog::onStartShare);
 	
 	connect(m_pLWScreen,&QListWidget::itemClicked,this,&ShareScreenDialog::onDesktopItemSelected);
@@ -104,16 +105,34 @@ void ShareScreenDialog::initListWidget(const VecWindowShareInfo& vec)
 
 void ShareScreenDialog::clearMap()
 {
+	m_mapApp.clear();
+	m_mapScreen.clear();
+	close();
 	
 }
 
 void ShareScreenDialog::mousePressEvent(QMouseEvent* event)
 {
+	if (event->button() == Qt::LeftButton) {
+		// 记录鼠标点击时的位置
+		mousePos = event->globalPos();
+		// 记录窗口当前的位置
+		windowPos = this->pos();
+		// 计算鼠标相对于窗口的位置
+		dPos = mousePos - windowPos;
+	}
 }
 
 void ShareScreenDialog::mouseMoveEvent(QMouseEvent* event)
 {
+	if (event->buttons() & Qt::LeftButton) {
+		// 计算窗口应该移动到的位置
+		QPoint newPos = event->globalPos() - dPos;
+		// 移动窗口
+		this->move(newPos);
+	}
 }
+
 
 
 
@@ -124,6 +143,8 @@ void ShareScreenDialog::onClose()
 
 void ShareScreenDialog::onCancel()
 {
+	clearMap();
+	
 }
 
 void ShareScreenDialog::onStartShare()

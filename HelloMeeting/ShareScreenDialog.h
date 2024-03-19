@@ -4,6 +4,7 @@
 #include "commons.h"
 #include <qlabel.h>
 #include <qpushbutton.h>
+#include <QMouseEvent>
 class ShareScreenDialog:public QDialog
 {
 	Q_OBJECT

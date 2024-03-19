@@ -103,7 +103,9 @@ void CMainWidget::onRemoteJoined(uid_t uid, int elapsed)
 
 void CMainWidget::onEndMeeting()
 {
+
 	close();
+
 }
 
 void CMainWidget::on_ShareScreen()
