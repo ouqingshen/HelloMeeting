@@ -12,7 +12,7 @@ public:
     ~CLoginDIg();
 
     QString getRoomId() const;
-
+    uint getUserName() const;
 
     void mousePressEvent(QMouseEvent* event) override;
 

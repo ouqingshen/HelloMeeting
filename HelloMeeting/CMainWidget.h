@@ -16,7 +16,7 @@ public:
 	CMainWidget(QWidget *p =nullptr);
 	~CMainWidget();
 
-	void joinRoom(const QString roomId);
+	void joinRoom(const QString roomId,const uint userName);
 	void resizeEvent(QResizeEvent* event) override;
 private:
 	void initUI();

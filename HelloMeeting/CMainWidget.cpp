@@ -36,9 +36,9 @@ CMainWidget::~CMainWidget()
 	}
 }
 
-void CMainWidget::joinRoom(const QString roomId)
+void CMainWidget::joinRoom(const QString roomId, const uint userName)
 {
-	m_pAgora->joinChannel(roomId, 123002);
+	m_pAgora->joinChannel(roomId, userName);
 }
 
 void CMainWidget::resizeEvent(QResizeEvent* event)

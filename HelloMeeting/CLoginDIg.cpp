@@ -13,7 +13,7 @@ CLoginDIg::CLoginDIg(QWidget *parent)
     ui.setupUi(this);
     ui.widget_right->setStyleSheet("background-image: url(:/CLoginDIg/resources/login/login_right.jpg)");
  
-    ui.lineEdit_roomId->setText("10001");
+    ui.lineEdit_roomId->setText("");
     ui.lineEdit_pwd->setFixedHeight(40);
     ui.lineEdit_roomId->setFixedHeight(40);
     ui.lineEdit_userName->setFixedHeight(40);
@@ -43,6 +43,11 @@ QString CLoginDIg::getRoomId() const
     return ui.lineEdit_roomId->text();
 }
 
+uint CLoginDIg::getUserName() const
+{
+    return ui.lineEdit_userName->text().toUInt();
+}
+
 void CLoginDIg::mousePressEvent(QMouseEvent* event)
 {
     if (ReleaseCapture())
@@ -58,9 +63,10 @@ void CLoginDIg::mousePressEvent(QMouseEvent* event)
 
 void CLoginDIg::on_btnJoin_clicked() {
     QString roomId = ui.lineEdit_roomId->text();
-    if (roomId.isEmpty())
+    uint userName = ui.lineEdit_userName->text().toUInt();
+    if (roomId.isEmpty()||userName==NULL)
     {
-        QMessageBox::warning(this, u8"警告", u8"会议号不能为空！！！！！");
+        QMessageBox::warning(this, u8"警告", u8"房间号、用户ID不能为空！！！！！");
         return;
     }
     accept();
