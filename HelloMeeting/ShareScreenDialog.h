@@ -21,7 +21,7 @@ private:
 
 signals:
 	void sig_StartShare(int type,void* hwnd);
-
+	void sig_StopShare();
 
 private slots:
 	void onClose();

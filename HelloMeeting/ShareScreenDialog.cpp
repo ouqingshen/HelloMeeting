@@ -53,7 +53,7 @@ ShareScreenDialog::ShareScreenDialog(QDialog* parent)
 	m_pBtnStart->setText(u8"开始共享");
 
 	m_pBtnCancel = new QPushButton(this);
-	m_pBtnCancel->setText(u8"取消");
+	m_pBtnCancel->setText(u8"取消共享");
 
 	vBoxLayout->addWidget(m_pLabel_Screen);
 	vBoxLayout->addWidget(m_pLWScreen);
@@ -143,8 +143,8 @@ void ShareScreenDialog::onClose()
 
 void ShareScreenDialog::onCancel()
 {
+	emit sig_StopShare();
 	clearMap();
-	
 }
 
 void ShareScreenDialog::onStartShare()

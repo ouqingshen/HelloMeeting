@@ -27,6 +27,7 @@ private slots:
 	void onEndMeeting();
 	void on_ShareScreen();
 	void startShareScreen(int type, void* hwnd);
+	void stopShareScreen();
 
 private:
 	CTitleBar* m_pTitleBar = nullptr;

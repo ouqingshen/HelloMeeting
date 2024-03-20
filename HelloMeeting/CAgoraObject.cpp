@@ -227,7 +227,7 @@ int CAgoraObject::start_share_screen(int type, void* hwnd)
 
 int CAgoraObject::stop_share_window()
 {
-    return 0;
+    return m_rtcEngine->stopScreenCapture();
 }
 
 

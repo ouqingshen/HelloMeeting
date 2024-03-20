@@ -82,6 +82,7 @@ void CMainWidget::initUI()
 	connect(m_pBottomBar,&CBottomBar::sig_close,this,&CMainWidget::onEndMeeting);
 	connect(m_pBottomBar, &CBottomBar::sig_shareScreen,this,&CMainWidget::on_ShareScreen);
 
+
 }
 
 
@@ -117,7 +118,7 @@ void CMainWidget::on_ShareScreen()
 
 
 	connect(share,&ShareScreenDialog::sig_StartShare,this,&CMainWidget::startShareScreen);
-
+	connect(share,&ShareScreenDialog::sig_StopShare,this,&CMainWidget::stopShareScreen);
 	share->exec();
 }
 
@@ -128,4 +129,12 @@ void CMainWidget::startShareScreen(int type,void* hwnd)
 		QMessageBox::information(this, u8"提示", u8"共享屏幕失败");
 	}
 
+}
+
+void CMainWidget::stopShareScreen()
+{
+	if (0!=m_pAgora->stop_share_window())
+	{
+		QMessageBox::information(this, u8"提示", u8"取消失败");
+	}
 }
