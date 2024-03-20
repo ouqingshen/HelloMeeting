@@ -8,10 +8,10 @@ CLeftVideoList::CLeftVideoList(QWidget* p)
 {
 	this->setFixedWidth(SMALL_VIDEO_WIDTH+10);
 	setAttribute(Qt::WA_StyledBackground);
-	setStyleSheet("background-color:rgb(200,200,200)");
+	setStyleSheet("background-color:rgb(255,255,255)");
 
 	m_pListWidget = new QListWidget(this);
-	m_pListWidget->setStyleSheet("background-color:rgb(180,170,160)");
+	m_pListWidget->setStyleSheet("background-color:rgb(241, 245, 249)");
 
 	QVBoxLayout* pVlay = new QVBoxLayout(this);
 	pVlay->addWidget(m_pListWidget);

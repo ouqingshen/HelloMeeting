@@ -10,7 +10,7 @@ CBottomBar::CBottomBar(QWidget* p)
 	initUI();
 	this->setFixedHeight(100);
 	setAttribute(Qt::WA_StyledBackground);
-	setStyleSheet("background-color:rgb(220,230,240)");
+	setStyleSheet("background-color:rgb(255,255,255)");
 }
 
 CBottomBar::~CBottomBar()
@@ -81,6 +81,7 @@ void CBottomBar::initUI()
     QHBoxLayout* layout = new QHBoxLayout(this);
     layout->addWidget(m_pAudioToolButton);
     layout->addWidget(m_pCameraToolButton);
+    layout->addStretch();
     layout->addWidget(m_pShareScreenToolButton);
     layout->addWidget(m_pSecurityToolButton);
     layout->addWidget(m_pInvitationToolButton);
@@ -93,8 +94,11 @@ void CBottomBar::initUI()
     layout->addWidget(m_pFullScreenButton);
     layout->addStretch();
     QPushButton* endingMeeting_button = new QPushButton;
+    layout->addStretch();
     endingMeeting_button->setText(u8"½áÊø»áÒé");
-    endingMeeting_button->setStyleSheet("");
+    endingMeeting_button->setFixedSize(100,40);
+    endingMeeting_button->setStyleSheet("QPushButton { border: 1px solid red; background-color: white; color: red; font: 16px;border-radius: 8px } QPushButton:hover { background-color: red; color: white;border-radius: 8px }");
+
     layout->addWidget(endingMeeting_button);
 
 

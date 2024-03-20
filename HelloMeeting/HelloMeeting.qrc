@@ -16,5 +16,14 @@
         <file>resources/bottomBar/microphone_off.svg</file>
         <file>resources/bottomBar/microphone_on.svg</file>
         <file>resources/bottomBar/microphoneHover_off.svg</file>
+        <file>resources/bottomBar/allScreen.svg</file>
+        <file>resources/bottomBar/application.svg</file>
+        <file>resources/bottomBar/Camera.svg</file>
+        <file>resources/bottomBar/chat.svg</file>
+        <file>resources/bottomBar/groupschat.svg</file>
+        <file>resources/bottomBar/invite.svg</file>
+        <file>resources/bottomBar/ScreenShare.svg</file>
+        <file>resources/bottomBar/security.svg</file>
+        <file>resources/bottomBar/setting.svg</file>
     </qresource>
 </RCC>

@@ -15,7 +15,7 @@ CBottomBarTools::CBottomBarTools(QString text, QString normalImageUrl, QString n
 	this->setFixedSize(80,80);
 	this->setIconSize(QSize(50,50));
 	this->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-	this->setStyleSheet("border:none;font-size:16px;padding-top:3px;padding-bottom:3px");
+	this->setStyleSheet("QToolButton{border:none;font-size:14px;padding-top:3px;padding-bottom:3px}QToolButton:hover{background-color:rgb(204, 204, 204)}");
 	this->setText(text);
 	this->setIcon(QIcon(m_StateOpen?m_normalImageUrl:m_clickedImageUrl));
 	

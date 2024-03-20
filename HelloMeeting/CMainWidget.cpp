@@ -7,6 +7,8 @@
 #include <iostream>
 #include "commons.h"
 #include "ShareScreenDialog.h"
+#include <QScreen>  
+#include <QApplication>
 
 CMainWidget::CMainWidget(QWidget* p)
 	:CFraneLessWidgetBase(p)
@@ -45,13 +47,25 @@ void CMainWidget::resizeEvent(QResizeEvent* event)
 {
 	int w = this->width();
 	int h = this->height();
-	int screen_w = 1920;
-	int screen_h = 1080;
+	QScreen* screen = QApplication::primaryScreen();
 	if (!this->isMaximized())
 	{
-	this->move((1920-w)/2,(1080-h)/2);
+	//this->move((screen->size().width() - w) / 2, (screen->size().height() - h) / 2);
+	//resize(w * 1.1, h * 1.1);
 	}
 
+}
+void CMainWidget::wheelEvent(QWheelEvent* event)
+{
+	if (event->modifiers()) {
+		int delta = event->angleDelta().y();
+		if (delta > 0) {
+			resize(width() * 1.1, height() * 1.1);
+		}
+		else if (delta < 0) {
+			resize(width() * 0.9, height() * 0.9);
+		}
+	}
 }
 void CMainWidget::initUI()
 {
@@ -77,7 +91,7 @@ void CMainWidget::initUI()
 	mainVlay->addLayout(pHLay);
 	//mainVlay->addWidget(m_pBottomBar);
 
-	mainVlay->setContentsMargins(0, 0, 0, 0);
+	mainVlay->setContentsMargins(5, 5, 5, 5);
 
 	connect(m_pBottomBar,&CBottomBar::sig_close,this,&CMainWidget::onEndMeeting);
 	connect(m_pBottomBar, &CBottomBar::sig_shareScreen,this,&CMainWidget::on_ShareScreen);

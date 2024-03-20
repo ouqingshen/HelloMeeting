@@ -15,10 +15,12 @@ void CTitleBar::initUI()
 {
 	setAttribute(Qt::WA_StyledBackground);
 	this->setFixedHeight(32 + 5 * 2);
-	this->setStyleSheet("background-color:rgb(54,54,54)");
+	this->setStyleSheet("background-color:rgb(255,255,255)");
 	m_pLogo = new QLabel(this);
-	m_pLogo->setFixedSize(50, 50);
-	m_pLogo->setStyleSheet("background-image:url(:/CLoginDIg/resources/login/logo.png);background-repeat: no-repeat;background-position: center");
+
+	QPixmap pixmap(":/CLoginDIg/resources/login/logo.png");
+	pixmap = pixmap.scaled(30, 30, Qt::KeepAspectRatio, Qt::SmoothTransformation);  // 保持比例缩放
+	m_pLogo->setPixmap(pixmap);
 
 	m_pTitleTextLabel = new QLabel(this);
 	m_pTitleTextLabel->setText(u8"HelloMeeting");
@@ -43,6 +45,8 @@ void CTitleBar::initUI()
 
 	QHBoxLayout* pHlay = new QHBoxLayout(this);
 	pHlay->addWidget(m_pLogo);
+	pHlay->addSpacing(64);
+	pHlay->addStretch();
 	pHlay->addWidget(m_pTitleTextLabel);
 	pHlay->addStretch();
 	pHlay->addWidget(m_pMinBtn);

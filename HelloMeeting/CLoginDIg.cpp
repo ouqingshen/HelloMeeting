@@ -13,10 +13,11 @@ CLoginDIg::CLoginDIg(QWidget *parent)
     ui.setupUi(this);
     ui.widget_right->setStyleSheet("background-image: url(:/CLoginDIg/resources/login/login_right.jpg)");
  
-    ui.lineEdit_roomId->setText("");
+    ui.lineEdit_roomId->setText("1001");
     ui.lineEdit_pwd->setFixedHeight(40);
     ui.lineEdit_roomId->setFixedHeight(40);
     ui.lineEdit_userName->setFixedHeight(40);
+    ui.lineEdit_userName->setText("1001");
 
     ui.btnJoin->setFixedHeight(50);
 

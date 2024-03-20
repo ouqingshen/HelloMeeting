@@ -18,6 +18,7 @@ public:
 
 	void joinRoom(const QString roomId,const uint userName);
 	void resizeEvent(QResizeEvent* event) override;
+	void wheelEvent(QWheelEvent* event) override;
 private:
 	void initUI();
 
