@@ -22,9 +22,9 @@
         <file>resources/bottomBar/chat.svg</file>
         <file>resources/bottomBar/groupschat.svg</file>
         <file>resources/bottomBar/invite.svg</file>
-        <file>resources/bottomBar/ScreenShare.svg</file>
         <file>resources/bottomBar/security.svg</file>
         <file>resources/bottomBar/setting.svg</file>
         <file>resources/bottomBar/memberManagement.svg</file>
+        <file>resources/bottomBar/ScreenShare.svg</file>
     </qresource>
 </RCC>
