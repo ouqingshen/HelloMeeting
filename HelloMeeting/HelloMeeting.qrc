@@ -25,5 +25,6 @@
         <file>resources/bottomBar/ScreenShare.svg</file>
         <file>resources/bottomBar/security.svg</file>
         <file>resources/bottomBar/setting.svg</file>
+        <file>resources/bottomBar/memberManagement.svg</file>
     </qresource>
 </RCC>

@@ -18,7 +18,7 @@ public:
 
 public slots:
     void on_titleBar_clicked();
-    void on_btnJoin_clicked();
+    void btnJoin_clicked();
 
 private:
     Ui::CLoginDIgClass ui;

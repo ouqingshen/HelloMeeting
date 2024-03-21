@@ -8,7 +8,7 @@ CBottomBar::CBottomBar(QWidget* p)
 	:QWidget(p)
 {
 	initUI();
-	this->setFixedHeight(100);
+	this->setFixedHeight(90);
 	setAttribute(Qt::WA_StyledBackground);
 	setStyleSheet("background-color:rgb(255,255,255)");
 }
@@ -39,37 +39,37 @@ void CBottomBar::initUI()
      m_pAudioToolButton            = new CBottomBarTools(u8"麦克风",":/BottomBar/resources/bottomBar/microphone_on.svg",
         ":/BottomBar/resources/bottomBar/microphone_hover.svg",
         ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-     m_pCameraToolButton           = new CBottomBarTools(u8"摄像头", ":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg", ":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-    m_pShareScreenToolButton      = new CBottomBarTools(u8"屏幕共享",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-    m_pSecurityToolButton         = new CBottomBarTools(u8"安全",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-    m_pInvitationToolButton       = new CBottomBarTools(u8"邀请",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-    m_pManageMemberToolButton     = new CBottomBarTools(u8"成员管理",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-    m_pChatToolButton             = new CBottomBarTools(u8"聊天",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
+     m_pCameraToolButton           = new CBottomBarTools(u8"摄像头", ":/BottomBar/resources/bottomBar/Camera.svg",
+        ":/BottomBar/resources/bottomBar/Camera.svg",
+        ":/BottomBar/resources/bottomBar/Camera.svg", ":/BottomBar/resources/bottomBar/Camera.svg", true, this);
+    m_pShareScreenToolButton      = new CBottomBarTools(u8"屏幕共享",":/BottomBar/resources/bottomBar/ScreenShare.svg",
+        ":/BottomBar/resources/bottomBar/ScreenShare.svg",
+        ":/BottomBar/resources/bottomBar/ScreenShare.svg",":/BottomBar/resources/bottomBar/ScreenShare.svg", true, this);
+    m_pSecurityToolButton         = new CBottomBarTools(u8"安全",":/BottomBar/resources/bottomBar/security.svg",
+        ":/BottomBar/resources/bottomBar/security.svg",
+        ":/BottomBar/resources/bottomBar/security.svg",":/BottomBar/resources/bottomBar/security.svg", true, this);
+    m_pInvitationToolButton       = new CBottomBarTools(u8"邀请",":/BottomBar/resources/bottomBar/invite.svg",
+        ":/BottomBar/resources/bottomBar/invite.svg",
+        ":/BottomBar/resources/bottomBar/invite.svg",":/BottomBar/resources/bottomBar/invite.svg", true, this);
+    m_pManageMemberToolButton     = new CBottomBarTools(u8"成员管理",":/BottomBar/resources/bottomBar/memberManagement.svg",
+        ":/BottomBar/resources/bottomBar/memberManagement.svg",
+        ":/BottomBar/resources/bottomBar/memberManagement.svg",":/BottomBar/resources/bottomBar/memberManagement.svg", true, this);
+    m_pChatToolButton             = new CBottomBarTools(u8"聊天",":/BottomBar/resources/bottomBar/chat.svg",
+        ":/BottomBar/resources/bottomBar/chat.svg",
+        ":/BottomBar/resources/bottomBar/chat.svg",":/BottomBar/resources/bottomBar/chat.svg", true, this);
 
-    m_pGroupDiscussionToolButton  = new CBottomBarTools(u8"群组聊天",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-    m_pApplicationToolButton      = new CBottomBarTools(u8"应用",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-    m_pSetToolButton              = new CBottomBarTools(u8"设置",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
-    m_pFullScreenButton           = new CBottomBarTools(u8"全屏",":/BottomBar/resources/bottomBar/microphone_on.svg",
-        ":/BottomBar/resources/bottomBar/microphone_hover.svg",
-        ":/BottomBar/resources/bottomBar/microphone_off.svg",":/BottomBar/resources/bottomBar/microphoneHover_off.svg", true, this);
+    m_pGroupDiscussionToolButton  = new CBottomBarTools(u8"群组聊天",":/BottomBar/resources/bottomBar/groupschat.svg",
+        ":/BottomBar/resources/bottomBar/groupschat.svg",
+        ":/BottomBar/resources/bottomBar/groupschat.svg",":/BottomBar/resources/bottomBar/groupschat.svg.", true, this);
+    m_pApplicationToolButton      = new CBottomBarTools(u8"应用",":/BottomBar/resources/bottomBar/application.svg",
+        ":/BottomBar/resources/bottomBar/application.svg",
+        ":/BottomBar/resources/bottomBar/application.svg",":/BottomBar/resources/bottomBar/application.svg", true, this);
+    m_pSetToolButton              = new CBottomBarTools(u8"设置",":/BottomBar/resources/bottomBar/setting.svg",
+        ":/BottomBar/resources/bottomBar/setting.svg",
+        ":/BottomBar/resources/bottomBar/setting.svg",":/BottomBar/resources/bottomBar/setting.svg", true, this);
+    m_pFullScreenButton           = new CBottomBarTools(u8"全屏",":/BottomBar/resources/bottomBar/allScreen.svg",
+        ":/BottomBar/resources/bottomBar/allScreen.svg",
+        ":/BottomBar/resources/bottomBar/allScreen.svg",":/BottomBar/resources/bottomBar/allScreen.svg", true, this);
    
 
     

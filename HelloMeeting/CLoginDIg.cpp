@@ -34,6 +34,12 @@ CLoginDIg::CLoginDIg(QWidget *parent)
 
     connect(ui.btnMin,&QPushButton::clicked,this,&CLoginDIg::on_titleBar_clicked);
     connect(ui.btnClose,&QPushButton::clicked,this,&CLoginDIg::on_titleBar_clicked);
+    connect(ui.btnJoin,&QPushButton::clicked,this,&CLoginDIg::btnJoin_clicked);
+
+    ui.btnSet->setCheckable(true);
+    ui.btnSet->setChecked(true);
+
+    //btnJoin_clicked();
 }
 
 CLoginDIg::~CLoginDIg()
@@ -62,7 +68,7 @@ void CLoginDIg::mousePressEvent(QMouseEvent* event)
 }
 
 
-void CLoginDIg::on_btnJoin_clicked() {
+void CLoginDIg::btnJoin_clicked() {
     QString roomId = ui.lineEdit_roomId->text();
     uint userName = ui.lineEdit_userName->text().toUInt();
     if (roomId.isEmpty()||userName==NULL)

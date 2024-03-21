@@ -9,6 +9,7 @@
 #include "ShareScreenDialog.h"
 #include <QScreen>  
 #include <QApplication>
+#include <QTime>
 
 CMainWidget::CMainWidget(QWidget* p)
 	:CFraneLessWidgetBase(p)
@@ -45,19 +46,23 @@ void CMainWidget::joinRoom(const QString roomId, const uint userName)
 
 void CMainWidget::resizeEvent(QResizeEvent* event)
 {
+	static QTime time = QTime();
+	time.restart();
+
 	int w = this->width();
 	int h = this->height();
 	QScreen* screen = QApplication::primaryScreen();
-	if (!this->isMaximized())
+	if (!this->isMaximized() && time.elapsed() > 300)
 	{
-	//this->move((screen->size().width() - w) / 2, (screen->size().height() - h) / 2);
-	//resize(w * 1.1, h * 1.1);
+		this->move((screen->size().width() - w) / 2, (screen->size().height() - h) / 2);
+		time.restart();
+		//resize(w * 1.1, h * 1.1);
 	}
 
 }
 void CMainWidget::wheelEvent(QWheelEvent* event)
 {
-	if (event->modifiers()) {
+	/*if (event->modifiers()) {
 		int delta = event->angleDelta().y();
 		if (delta > 0) {
 			resize(width() * 1.1, height() * 1.1);
@@ -65,7 +70,7 @@ void CMainWidget::wheelEvent(QWheelEvent* event)
 		else if (delta < 0) {
 			resize(width() * 0.9, height() * 0.9);
 		}
-	}
+	}*/
 }
 void CMainWidget::initUI()
 {

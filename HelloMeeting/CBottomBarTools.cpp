@@ -12,10 +12,13 @@ CBottomBarTools::CBottomBarTools(QString text, QString normalImageUrl, QString n
 	m_StateOpen(clicked),
 	QToolButton(parent)
 {
-	this->setFixedSize(80,80);
-	this->setIconSize(QSize(50,50));
+	this->setFixedSize(70,70);
+	this->setIconSize(QSize(30,30));
 	this->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-	this->setStyleSheet("QToolButton{border:none;font-size:14px;padding-top:3px;padding-bottom:3px}QToolButton:hover{background-color:rgb(204, 204, 204)}");
+	this->setStyleSheet("\
+							QToolButton{border:none;font-size:14px;padding-top:3px;padding-bottom:3px}\
+							QToolButton:hover{background-color:rgb(204, 204, 204)} \
+						");
 	this->setText(text);
 	this->setIcon(QIcon(m_StateOpen?m_normalImageUrl:m_clickedImageUrl));
 	
